@@ -48,6 +48,14 @@ user_exists_{{lab}}:
     - perms:
       - minion-read
 
+ensure_target_role_access:
+  sse_target.role_access:
+    - name: {{lab}}
+    - roles:
+        {{lab}}:
+          read: True
+          write: True
+
 {# 
 #}
 

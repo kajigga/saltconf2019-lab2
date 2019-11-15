@@ -12,14 +12,14 @@ launch_vm_builds:
       - saltconf.rh_labs
       - saltconf.sse_config
 
-#launch_win_ub_builds:
-#  salt.state:
-#    - tgt: saltmaster2
-#    - queue: true
-#    - sls:
-#      - saltconf.ub_labs
-#      - saltconf.win_labs
-#      #- saltconf.sse_config
+launch_win_ub_builds:
+  salt.state:
+    - tgt: saltmaster2
+    - queue: true
+    - sls:
+      - saltconf.ub_labs
+      - saltconf.win_labs
+      #- saltconf.sse_config
 
 {# #}
 
