@@ -10,15 +10,13 @@ launch_vm_builds:
     - queue: true
     - sls:
       - saltconf.rh_labs
-      - saltconf.ub_labs
-      - saltconf.win_labs
-      - saltconf.sse_config
 
-launch_vm_builds:
+launch_win_ub_builds:
   salt.state:
     - tgt: saltmaster2
     - queue: true
     - sls:
+      - saltconf.ub_labs
       - saltconf.win_labs
       - saltconf.sse_config
 
