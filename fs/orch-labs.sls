@@ -18,7 +18,7 @@ launch_win_ub_builds:
     - queue: true
     - sls:
       - saltconf.ub_labs
-      - saltconf.win_labs
+      #- saltconf.win_labs
       #- saltconf.sse_config
 
 {# #}

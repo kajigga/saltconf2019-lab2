@@ -35,9 +35,6 @@ sse_create_role_{{lab}}:
       -  vman-policy-write
       -  vman-remediation-run
 
-
-
-
 # create a user
 user_exists_{{lab}}:
   sse_user.present:
@@ -55,8 +52,5 @@ ensure_target_role_access_{{lab}}:
         {{lab}}:
           read: True
           write: True
-
-{# 
-#}
 
 {% endfor %}
