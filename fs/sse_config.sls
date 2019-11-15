@@ -48,7 +48,7 @@ user_exists_{{lab}}:
     - perms:
       - minion-read
 
-ensure_target_role_access:
+ensure_target_role_access_{{lab}}:
   sse_target.role_access:
     - name: {{lab}}
     - roles:
