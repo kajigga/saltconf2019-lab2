@@ -11,7 +11,6 @@ launch_vm_builds:
     - sls:
       - saltconf.rh_labs
       - saltconf.sse_config
-{#
 launch_win_ub_builds:
   salt.state:
     - tgt: saltmaster2
@@ -20,6 +19,7 @@ launch_win_ub_builds:
       - saltconf.ub_labs
       - saltconf.win_labs
 
+{#
  #}
 
 set_grains_all_labs:
