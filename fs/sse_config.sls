@@ -42,6 +42,7 @@ user_exists_{{lab}}:
     - password: secops
     - roles:
       - {{lab}}
+      - Administrator
     - perms:
       - minion-read
 
