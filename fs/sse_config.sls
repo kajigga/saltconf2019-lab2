@@ -1,11 +1,13 @@
 {% import_yaml "saltconf/labs.yaml" as labs %}
+{#
 {% for x in range(labs.labs.count) %} 
+#}
+{% for x in range(33, 35) %} 
 {% set lab = "lab" ~ (x+1) %}
 
 # create a target
 # grant the role access to the target
 
-{#
 target_exists_{{lab}}:
   sse_target.present:
     - name: {{lab}}
@@ -76,6 +78,8 @@ user_exists_{{lab}}:
       - Administrator
     - perms:
       - minion-read
+
+{#
 #}
 
 ensure_target_role_access_{{lab}}:
