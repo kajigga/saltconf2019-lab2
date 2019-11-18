@@ -83,7 +83,7 @@ user_exists_{{lab}}:
 #}
 
 {% for t in ['', '_ub', '_rh', '_win', '_linux'] %}
-ensure_target_role_access_{{lab}}:
+ensure_target_role_access_{{lab}}{{t}}:
   sse_target.role_access:
     - name: {{lab}}{{t}}
     - roles:
