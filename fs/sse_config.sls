@@ -18,7 +18,7 @@ target_exists_{{lab}}_ub:
     - name: {{lab}}_ub
     - tgt_master: '*'
     - tgt_type: compound
-    - tgt: 'G@os_family:Ubuntu and G@lab:{{lab}}'
+    - tgt: 'G@os:Ubuntu and G@lab:{{lab}}'
 
 target_exists_{{lab}}_rh:
   sse_target.present:
