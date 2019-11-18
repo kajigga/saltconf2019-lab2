@@ -1,6 +1,5 @@
 {% import_yaml "saltconf/labs.yaml" as labs %}
-{# {% for x in range(labs.labs.count) %} #}
-{% for x in range(2) %}
+{% for x in range(labs.labs.count) %} 
 {% set lab = "lab" ~ (x+1) %}
 
 # create a target
@@ -21,19 +20,27 @@ target_exists_{{lab}}_ub:
     - tgt_type: glob
     - tgt: '{{lab}}_ub'
 
-# target_exists_{{lab}}_win:
-#   sse_target.present:
-#     - name: {{lab}}
-#     - tgt_master: '*'
-#     - tgt_type: glob
-#     - tgt: '{{lab}}_win1'
+target_exists_{{lab}}_rh:
+  sse_target.present:
+    - name: {{lab}}_rh
+    - tgt_master: '*'
+    - tgt_type: glob
+    - tgt: '{{lab}}_ub'
 
-# target_exists_{{lab}}_linux:
-#   sse_target.present:
-#     - name: {{lab}}
-#     - tgt_master: '*'
-#     - tgt_type: compound
-#     - tgt: 'G@lab:{{lab}} and G@os_family:Linux'
+
+target_exists_{{lab}}_win:
+  sse_target.present:
+    - name: {{lab}}_win
+    - tgt_master: '*'
+    - tgt_type: glob
+    - tgt: '{{lab}}_win1'
+
+target_exists_{{lab}}_linux:
+  sse_target.present:
+    - name: {{lab}}_linux
+    - tgt_master: '*'
+    - tgt_type: compound
+    - tgt: 'G@lab:{{lab}} and G@kernel:Linux'
 
 # create a role
 sse_create_role_{{lab}}:
@@ -77,6 +84,15 @@ ensure_target_role_access_{{lab}}:
           read: True
           write: True
         {{lab}}_ub:
+          read: True
+          write: True
+        {{lab}}_rh:
+          read: True
+          write: True
+        {{lab}}_win:
+          read: True
+          write: True
+        {{lab}}_linux:
           read: True
           write: True
 
