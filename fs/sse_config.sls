@@ -1,5 +1,6 @@
 {% import_yaml "saltconf/labs.yaml" as labs %}
-{% for x in range(labs.labs.count) %}
+{# {% for x in range(labs.labs.count) %} #}
+{% for x in range(2) %}
 {% set lab = "lab" ~ (x+1) %}
 
 # create a target
