@@ -24,7 +24,7 @@ target_exists_{{lab}}_rh:
   sse_target.present:
     - name: {{lab}}_rh
     - tgt_master: '*'
-    - tgt_type: glob
+    - tgt_type: compound
     - tgt: 'G@os_family:RedHat and G@lab:{{lab}}'
 
 
@@ -32,7 +32,7 @@ target_exists_{{lab}}_win:
   sse_target.present:
     - name: {{lab}}_win
     - tgt_master: '*'
-    - tgt_type: glob
+    - tgt_type: compound
     - tgt: 'G@os_family:Windows and G@lab:{{lab}}'
 
 target_exists_{{lab}}_linux:
