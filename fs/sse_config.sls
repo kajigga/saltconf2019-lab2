@@ -12,6 +12,28 @@ target_exists_{{lab}}:
     - tgt_type: grain
     - tgt: 'lab:{{lab}}'
 
+
+target_exists_{{lab}}_ub:
+  sse_target.present:
+    - name: {{lab}}_ub
+    - tgt_master: '*'
+    - tgt_type: glob
+    - tgt: '{{lab}}_ub'
+
+# target_exists_{{lab}}_win:
+#   sse_target.present:
+#     - name: {{lab}}
+#     - tgt_master: '*'
+#     - tgt_type: glob
+#     - tgt: '{{lab}}_win1'
+
+# target_exists_{{lab}}_linux:
+#   sse_target.present:
+#     - name: {{lab}}
+#     - tgt_master: '*'
+#     - tgt_type: compound
+#     - tgt: 'G@lab:{{lab}} and G@os_family:Linux'
+
 # create a role
 sse_create_role_{{lab}}:
   sse_role.present:
@@ -51,6 +73,9 @@ ensure_target_role_access_{{lab}}:
     - name: {{lab}}
     - roles:
         {{lab}}:
+          read: True
+          write: True
+        {{lab}}_ub:
           read: True
           write: True
 
