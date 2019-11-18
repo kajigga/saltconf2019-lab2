@@ -80,20 +80,10 @@ ensure_target_role_access_{{lab}}:
   sse_target.role_access:
     - name: {{lab}}
     - roles:
-        {{lab}}:
+        {%- for t in ['', '_ub', '_rh', '_win', '_linux'] %}
+        {{lab}}{{t}}:
           read: True
           write: True
-        {{lab}}_ub:
-          read: True
-          write: True
-        {{lab}}_rh:
-          read: True
-          write: True
-        {{lab}}_win:
-          read: True
-          write: True
-        {{lab}}_linux:
-          read: True
-          write: True
+        {% endfor %}
 
 {% endfor %}
