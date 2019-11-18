@@ -82,14 +82,14 @@ user_exists_{{lab}}:
 {#
 #}
 
+{% for t in ['', '_ub', '_rh', '_win', '_linux'] %}
 ensure_target_role_access_{{lab}}:
   sse_target.role_access:
-    - name: {{lab}}
+    - name: {{lab}}{{t}}
     - roles:
-        {%- for t in ['', '_ub', '_rh', '_win', '_linux'] %}
-        {{lab}}{{t}}:
+        {{lab}}:
           read: True
           write: True
-        {% endfor %}
+{% endfor %}
 
 {% endfor %}
