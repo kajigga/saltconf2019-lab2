@@ -5,6 +5,7 @@
 # create a target
 # grant the role access to the target
 
+{#
 target_exists_{{lab}}:
   sse_target.present:
     - name: {{lab}}
@@ -75,6 +76,7 @@ user_exists_{{lab}}:
       - Administrator
     - perms:
       - minion-read
+#}
 
 ensure_target_role_access_{{lab}}:
   sse_target.role_access:
