@@ -1,0 +1,70 @@
+# The customer_id sets up the unique namespace in the database
+customer_id: 43cab1f4-de60-4ab1-85b5-1d883c5c5d09
+
+# Define SSL communication settings
+tls_minimum: 1.2
+port: 80
+
+# The sql backend config, the dialect chooses which sql backend
+# We are only supporting postgres at this time
+sql:
+  dialect: postgresql
+  host: database-1.crsfx9xidj8m.us-east-2.rds.amazonaws.com
+  port: 5432
+  driver: psycopg2
+  ssl: True
+
+# Caching Options
+background_workers:
+  combined_process: True
+  concurrency: 0
+  max_tasks: 100000
+  max_memory: 1048576
+
+num_processes: 1
+
+redis:
+  url: redis://saltconf-redis.yv7nsg.ng.0001.use2.cache.amazonaws.com:6379
+
+# Time in seconds to begin reporting minions as "lost" if not heard from
+raas_presence_expiration: 3600
+
+# Enable xsrf handling for API
+tornado_xsrf_cookies_enabled: True
+
+# Enable the access audit log, this allows for tracking of all historic
+# access to the raas apis
+audit:
+  enabled: false
+  valid_logins: false
+
+# Logging options
+#log_file_loglevel: debug
+#log_level: debug
+
+# Granular logging options
+#log_granular_levels:
+#  tornado.access: debug
+
+sec:
+  ingest_override: true
+  locke_dir: locke
+  post_ingest_cleanup: true
+  username: 'secops'
+  content_url: 'https://enterprise.saltstack.com/secops_downloads'
+  download_enabled: true
+  download_frequency: 86400
+  stats_snapshot_interval: 3600
+  ingest_on_boot: true
+
+vman:
+  vman_dir: vman
+  download_enabled: true
+  download_frequency: 86400
+  username: vman
+  content_url: 'https://enterprise.saltstack.com/vman_downloads/beta'
+  ingest_on_boot: true
+  compile_stats_interval: 60
+  stats_snapshot_interval: 3600
+  old_policy_file_lifespan: 2
+  delete_old_policy_files_interval: 86400
