@@ -6,29 +6,26 @@
 # create a target
 # grant the role access to the target
 
-target_exists_{{lab}}:
+target_absent_{{lab}}:
   sse_target.absent:
     - name: {{lab}}
 
 
-target_exists_{{lab}}_ub:
+target_absent_{{lab}}_ub:
   sse_target.absent:
     - name: {{lab}}_ub
 
-target_exists_{{lab}}_rh:
+target_absent_{{lab}}_rh:
   sse_target.absent:
     - name: {{lab}}_rh
 
-target_exists_{{lab}}_win:
+target_absent_{{lab}}_win:
   sse_target.absent:
     - name: {{lab}}_win
 
-target_exists_{{lab}}_linux:
+target_absent_{{lab}}_linux:
   sse_target.absent:
     - name: {{lab}}_linux
-    - tgt_master: '*'
-    - tgt_type: compound
-    - tgt: 'G@lab:{{lab}} and G@kernel:Linux'
 
 # create a role
 sse_create_role_{{lab}}:
@@ -36,7 +33,7 @@ sse_create_role_{{lab}}:
     - name: {{lab}}
 
 # create a user
-user_exists_{{lab}}:
+user_absent_{{lab}}:
   sse_user.absent:
     - name: {{lab}}
 
