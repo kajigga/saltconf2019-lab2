@@ -73,6 +73,7 @@ user_exists_{{lab}}:
     - roles:
       - {{lab}}
       - Administrator
+      # uncomment to make this user a superuser
     - perms:
       - minion-read
 
