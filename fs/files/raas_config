@@ -17,11 +17,11 @@ sql:
 # Caching Options
 background_workers:
   combined_process: True
-  concurrency: 0
+  #concurrency: 0
   max_tasks: 100000
   max_memory: 1048576
 
-num_processes: 1
+#num_processes: 1
 
 redis:
   url: redis://saltconf-redis.yv7nsg.ng.0001.use2.cache.amazonaws.com:6379

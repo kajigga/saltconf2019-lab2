@@ -29,5 +29,6 @@ raas_running:
     - name: raas
     - restart: true
     - enable: true
-    - watch: 
+    - watch_any: 
       - raas_config
+      - daemon_reload
