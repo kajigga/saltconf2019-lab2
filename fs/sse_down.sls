@@ -28,7 +28,7 @@ target_absent_{{lab}}_linux:
     - name: {{lab}}_linux
 
 # create a role
-sse_create_role_{{lab}}:
+sse_remove_role_{{lab}}:
   sse_role.absent:
     - name: {{lab}}
 
